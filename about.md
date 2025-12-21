@@ -4,12 +4,11 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+### 关于我
 
-### More Information
+职业：游戏开发工程师
+公司：网易（杭州）
 
-A place to include any other types of information that you'd like to include about yourself.
+### 联系我
 
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+[nmgliuweiqiang@163.com](nmgliuweiqiang@163.com)
