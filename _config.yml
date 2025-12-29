@@ -24,9 +24,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@domain.com
-author: GitHub User
+title: 游戏小站
+email: nmgliuweiqiang@163.com
+author: mongoliu.lwq
 
 # Copyright setting
 # You can use any html code, currently below placeholders are available:
@@ -86,9 +86,9 @@ yat:
 #     img: https://cdn.countryflags.com/thumbs/france/flag-400.png
 #     text: French
 #
-#   - lang: zh-CN
-#     img: https://cdn.countryflags.com/thumbs/china/flag-400.png
-#     text: Chinese(Simple)
+  # - lang: zh-CN
+  #   img: https://cdn.countryflags.com/thumbs/china/flag-400.png
+  #   text: Chinese(Simple)
 #
 #   - lang: ja
 #     img: https://cdn.countryflags.com/thumbs/japan/flag-400.png
@@ -152,19 +152,20 @@ yat:
 
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up
-# header_pages:
-#   - index.html
-#   - archives.html
-#   - categories.html
-#   - tags.html
-#   - about.md
+header_pages:
+  - index.html
+  - archives.html
+  - categories.html
+  - tags.html
+  # - about.md
+  - about.html
 
 # Page default value
 # defaults:
 #   home:
-#     heading: "Your awesome heading"
-#     subheading: "Your awesome subheading"
-#     banner: "Your image url"
+#     heading: '要走很多路、看很多人、物，才会珍惜现在'
+#     subheading: '每一天都是新的开始'
+#     banner: 'default'
 
 # Banner default settings
 # These banner settings are for global banner default, but you can also
