@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+<div class="home">
+  <div class="post-grid">
+    {% for post in paginator.posts %}
+      {% include post-card.html post=post %}
+    {% endfor %}
+  </div>
+
+  <!-- 分页导航 -->
+  {% if paginator.total_pages > 1 %}
+  <nav class="pagination" aria-label="分页">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="pagination-prev">&laquo; 上一页</a>
+    {% else %}
+      <span class="pagination-prev disabled">&laquo; 上一页</span>
+    {% endif %}
+
+    <span class="pagination-info">
+      第 {{ paginator.page }} / {{ paginator.total_pages }} 页
+    </span>
+
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="pagination-next">下一页 &raquo;</a>
+    {% else %}
+      <span class="pagination-next disabled">下一页 &raquo;</span>
+    {% endif %}
+  </nav>
+  {% endif %}
+</div>

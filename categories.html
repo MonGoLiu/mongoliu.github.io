@@ -1,0 +1,23 @@
+---
+layout: page
+title: 分类
+permalink: /categories/
+---
+
+<div class="categories-page">
+  {% for category in site.categories %}
+    {% assign cat_name = category[0] %}
+    {% assign posts = category[1] %}
+    <section class="category-section" id="{{ cat_name }}">
+      <h2>{{ cat_name }} <span class="count">({{ posts.size }})</span></h2>
+      <ul class="archive-list">
+        {% for post in posts %}
+          <li>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m-%d" }}</time>
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endfor %}
+</div>

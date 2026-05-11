@@ -1,0 +1,23 @@
+---
+layout: page
+title: 标签
+permalink: /tags/
+---
+
+<div class="tags-page">
+  {% for tag in site.tags %}
+    {% assign tag_name = tag[0] %}
+    {% assign posts = tag[1] %}
+    <section class="tag-section" id="{{ tag_name }}">
+      <h2>{{ tag_name }} <span class="count">({{ posts.size }})</span></h2>
+      <ul class="archive-list">
+        {% for post in posts %}
+          <li>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m-%d" }}</time>
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endfor %}
+</div>

@@ -1,0 +1,35 @@
+{% assign nodes = include.html | split: '<h' %}
+{% assign toc_content = "" %}
+{% assign has_headings = false %}
+
+{% for node in nodes %}
+  {% if node == "" %}
+    {% continue %}
+  {% endif %}
+
+  {% assign level = node | slice: 0, 1 %}
+  {% if level == "2" or level == "3" %}
+    {% assign has_headings = true %}
+    {% assign id_start = node | split: 'id="' %}
+    {% if id_start.size > 1 %}
+      {% assign id_end = id_start[1] | split: '"' %}
+      {% assign heading_id = id_end[0] %}
+      {% assign text_start = node | split: '>' %}
+      {% assign text_with_close = text_start[1] | split: '</h' %}
+      {% assign heading_text = text_with_close[0] | strip_html %}
+      {% if level == "2" %}
+        {% capture toc_content %}{{ toc_content }}<li class="toc-l2"><a href="#{{ heading_id }}">{{ heading_text }}</a></li>{% endcapture %}
+      {% else %}
+        {% capture toc_content %}{{ toc_content }}<li class="toc-l3"><a href="#{{ heading_id }}">{{ heading_text }}</a></li>{% endcapture %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% if has_headings %}
+<nav class="toc" aria-label="文章目录">
+  <ul>
+    {{ toc_content }}
+  </ul>
+</nav>
+{% endif %}

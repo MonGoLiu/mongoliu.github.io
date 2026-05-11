@@ -1,0 +1,21 @@
+{% assign post = include.post %}
+<article class="post-card">
+  <a href="{{ site.baseurl }}{{ post.url }}" class="post-card-link">
+    <div class="post-card-body">
+      <h2 class="post-card-title">{{ post.title }}</h2>
+      <p class="post-card-excerpt">
+        {% if post.excerpt %}
+          {{ post.excerpt | strip_html | truncate: 120 }}
+        {% endif %}
+      </p>
+      <div class="post-card-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%Y-%m-%d" }}
+        </time>
+        {% if post.categories.size > 0 %}
+          <span class="post-card-cat">{{ post.categories | first }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </a>
+</article>
